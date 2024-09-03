@@ -16,7 +16,7 @@ const MONGO_URI = process.env.MONGO_URI;
 //     res.json({message: "This is our first trial"});
 // })
 
-
+const port=process.env.PORT||4000
 const corsOptions = {
     origin: 'https://voting-app-frontend-sandy.vercel.app', // Replace with your frontend's actual URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -49,8 +49,8 @@ cronJob;
 mongoose
     .connect(MONGO_URI)
     .then(()=>{
-        app.listen(5000, ()=>{
-            console.log("Listening to Port 5000");
+        app.listen(port, ()=>{
+            console.log(`Listening to Port ${port}`);
         })
         console.log("Connected to database")
     })
