@@ -17,8 +17,15 @@ const MONGO_URI = process.env.MONGO_URI;
 // })
 
 
-
-app.use(cors());
+const corsOptions = {
+    origin: 'https://voting-app-frontend-od47kogob-sumit-anands-projects.vercel.app', // Replace with your frontend's actual URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.) to be sent
+    optionsSuccessStatus: 204 // Some legacy browsers (e.g., IE11) choke on 204
+  };
+  
+  app.use(cors(corsOptions));
+  
 app.use(bodyParser.json());
 
 // Route for login and signup
