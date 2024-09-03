@@ -17,14 +17,14 @@ const MONGO_URI = process.env.MONGO_URI;
 // })
 
 
-// const corsOptions = {
-//     origin: 'https://voting-app-frontend-sandy.vercel.app/', // Replace with your frontend's actual URL
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true, // Allow credentials (cookies, authorization headers, etc.) to be sent
-//     optionsSuccessStatus: 204 // Some legacy browsers (e.g., IE11) choke on 204
-//   };
+const corsOptions = {
+    origin: 'https://voting-app-frontend-sandy.vercel.app', // Replace with your frontend's actual URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.) to be sent
+    optionsSuccessStatus: 204 // Some legacy browsers (e.g., IE11) choke on 204
+  };
   
-  app.use(cors());
+  app.use(cors(corsOptions));
   
 app.use(bodyParser.json());
 
